@@ -1,24 +1,31 @@
 package J3003;
 
-public class Livro {
-    int num_paginas;
-    String titulo;
-    String autor;
-    String tema;
-    int tipo;
-    int quantidade;
-    boolean is_emprestado;
+import java.util.ArrayList;
 
-    public Livro(int num_paginas, String titulo, String autor, String tema, int tipo, int quantidade){
+public class Livro {
+    private int num_paginas;
+    private final String titulo;
+    private final String autor;
+    private final String tema;
+    private final int tipo;
+    private final boolean is_emprestado = false;
+
+    public Livro(int num_paginas, String titulo, String autor, String tema, int tipo){
         this.num_paginas = num_paginas;
         this.titulo = titulo;
         this.autor = autor;
         this.tema = tema;
         this.tipo = tipo;
-        this.quantidade = quantidade;
     }
 
-    public void informacoes() {
-        System.out.println("Número de páginas: " + this.num_paginas + " Título: " + this.titulo + " Autor: " + this.autor + " Tema(s): " + this.tema + " Tipo: " + this.tipo);
+    public ArrayList<String> get_info() {
+        ArrayList<String> info = new ArrayList<>();
+        info.add(this.titulo);
+        String num_paginas_str = String.format("%d", this.num_paginas);
+        info.add(num_paginas_str);
+        info.add(this.autor);
+        info.add(this.tema);
+        return info;
     }
+
 }
